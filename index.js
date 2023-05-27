@@ -20,7 +20,7 @@ const questions = [
     validate: ValidateColor,
   },
   {
-    name: "textInput",
+    name: "text",
     type: "input",
     message: "Please Input the Text of your Logo",
     validate: ValidateTextLength,
@@ -52,6 +52,7 @@ function ValidateColor(input) {
 //async function that takes in the questions and returns answers.
 async function inquirePrompt(questions) {
   const logoInformation = await inquirer.prompt(questions).then((answers) => {
+    console.log(answers);
     buildCircle(answers);
   });
 }
