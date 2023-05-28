@@ -4,12 +4,13 @@
   "description": "A Simple Generator for generating logos",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "inquirer": "^8.2.5",
+    "jest": "^29.5.0",
     "validate-color": "^2.2.4"
   }
 }

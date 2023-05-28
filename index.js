@@ -52,15 +52,13 @@ function ValidateColor(input) {
 //async function that takes in the questions and returns answers.
 async function inquirePrompt(questions) {
   const logoInformation = await inquirer.prompt(questions).then((answers) => {
-    console.log(answers);
-    buildCircle(answers);
+    buildShape(answers);
   });
 }
 
 //function to build the appropriate shape and then send said object over to the render function
-function buildCircle(answers) {
+function buildShape(answers) {
   let logoShape;
-  let writeReturn;
   switch (answers.shapeSelection) {
     case "Circle":
       logoShape = new shapes.Circle(
@@ -68,7 +66,7 @@ function buildCircle(answers) {
         answers.text,
         answers.textColor
       );
-      writeReturn = renderSVG(logoShape);
+      writeFile(logoShape.render());
       break;
     case "Square":
       logoShape = new shapes.Square(
@@ -76,7 +74,7 @@ function buildCircle(answers) {
         answers.text,
         answers.textColor
       );
-      writeReturn = renderSVG(logoShape);
+      writeFile(logoShape.render());
       break;
     case "Triangle":
       logoShape = new shapes.Triangle(
@@ -84,10 +82,9 @@ function buildCircle(answers) {
         answers.text,
         answers.textColor
       );
-      writeReturn = renderSVG(logoShape);
+      writeFile(logoShape.render());
       break;
   }
-  writeFile(writeReturn);
 }
 
 //write file function that takes the input from the render function and writes the logo.svg file
@@ -96,7 +93,7 @@ function writeFile(value) {
     if (err) {
       throw err;
     }
-    console.log("svg Rendered");
+    console.log("Generated logo.svg");
   });
 }
 
