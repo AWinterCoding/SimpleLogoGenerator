@@ -1,7 +1,6 @@
 const inquirer = require("inquirer");
 const shapes = require("./lib/shapes.js");
 const validateColor = require("validate-color").default;
-const renderSVG = require("./render.js");
 const fs = require("fs");
 const { Console } = require("console");
 
